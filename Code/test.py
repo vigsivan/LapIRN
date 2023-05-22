@@ -53,6 +53,14 @@ class TestConfig(BaseModel):
     range_flow: float = 0.4
     start_channel: int = 7
 
+    # @validator("fixed", "moving", "fixed_segmentations", "moving_segmentations")
+    # def validate_paths_exist(cls, val):
+    #     if val is not None:
+    #         for p in val:
+    #             if not p.exists():
+    #                 raise ValueError(f"Could not find path {p}")
+    #     return val
+    #
 
 def test(config: TestConfig):
     model_lvl1 = Miccai2020_LDR_laplacian_unit_add_lvl1(
